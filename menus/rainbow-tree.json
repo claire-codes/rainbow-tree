@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle Rainbow Tree",
+        "command": "rainbow-tree:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Rainbow Tree",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "rainbow-tree:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

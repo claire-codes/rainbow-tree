@@ -1,0 +1,18 @@
+{
+  "name": "Rainbow Tree",
+  "main": "./lib/rainbow-tree",
+  "version": "0.0.0",
+  "description": "Applies a rainbow colour scheme to your folder structure in the treeview",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "rainbow-tree:toggle"
+  },
+  "repository": "https://github.com/atom/rainbow-tree",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
