@@ -15,31 +15,26 @@
 // 1) Extract the colour at that index from the colour list to use.
 // 2) Add another class to our repeated class selector.
 // Both these variables are output to create a new class and colour style.
-.generate-rainbow(@list, @i: 1, @string, @repeated: @string) when (@i <= length(@list)) {
-    @extractMod: mod(@i, length(@list));
+.generate-rainbow(@list, @i: 0, @totalTimes: length(@list), @string, @repeated: @string) when (@i <= @totalTimes) {
+    @extractMod: mod(@i, length(@list)) + 1;
     @rainbow: extract(@list, @extractMod);
     @selector: ~'@{repeated}';
     .list-tree @{selector} > .list-item {
         color: @rainbow;
+        content: @extractMod;
     }
-    .generate-rainbow(@list, (@i + 1), @string, "@{string}@{repeated}");
+    .generate-rainbow(@list, (@i + 1), @totalTimes, @string, "@{string}@{repeated}");
 }
 
-.generate-rainbow(@rainbow-colors, 1, "li.list-nested-item ", "li.list-nested-item li.list-nested-item ");
+.generate-rainbow(@rainbow-colors, 0, 12, "li.list-nested-item ", "li.list-nested-item li.list-nested-item ");
 
 // .list-tree li.list-nested-item li.list-nested-item > .list-item {
 //     color: @pastel-yellow;
 // }
-// @what: return;
-// .repeater(@what,  'li.list-nested-item ', 3))
-// @smeg-3: ~'@@{what}';
 //
 // .list-tree li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
 //     color: @pastel-orange;
 // }
-// @hm: return;
-// .repeater(@hm,  'li.list-nested-item ', 4))
-// @smeg-4: ~'@@{hm}';
 //
 // .list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
 //     color: @pastel-green;
