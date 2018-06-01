@@ -21,7 +21,9 @@
     @selector: ~'@{repeated}';
     .list-tree @{selector} > .list-item {
         color: @rainbow;
-        content: @extractMod;
+    }
+    .list-tree @{selector} > .list-item  ~ .list-tree .name {
+        color: @rainbow;
     }
     .generate-rainbow(@list, (@i + 1), @totalTimes, @string, "@{string}@{repeated}");
 }

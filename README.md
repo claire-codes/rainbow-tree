@@ -10,5 +10,5 @@ Yes, I still use Atom.
 - Add ability to modify colours from options
 - Make sure it doesn't override gitignored ones
 - Make sure it doesn't override other git statuses
-- Apply to filenames
-- Rotate around colours up to 12 (or whatever) deep
+- Modify filenames colour from folder names
+- Add ability to change the way folder and file colours are different
