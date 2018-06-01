@@ -1,81 +1,62 @@
 @pastel-red: #ffb3ba;
 @pastel-orange: #ffd2b3;
-@pastel-yellow: 	#fff8b3;
+@pastel-yellow: #fff8b3;
 @pastel-green: #baffb3;
 @pastel-blue: #bae1ff;
 @pastel-violet: #baa2e8;
-
 @rainbow-colors: @pastel-red, @pastel-orange, @pastel-yellow, @pastel-green, @pastel-blue, @pastel-violet;
-
-.backgrounds(@list, @i: 1) when (@i <= length(@rainbow-colors)) {
-  // extract the right color from the list
-  @color: extract(@list, @i);
-
-  // apply the background to the selector
-  .list-tree li.list-nested-item > .list-item {
-    color: @color;
-    content: calc(@i - 1);
-  }
-
-  // recursive call for the next color
-  .backgrounds(@list, @i + 1);
-}
-
-// .backgrounds(@rainbow-colors);
 
 // .list-group li.list-nested-item.selected > .list-item,
 // .list-group li.list-nested-item > .list-item,
 // .list-group li:not(.list-nested-item).selected,
 // .list-group li:not(.list-nested-item),
 // .list-tree li.list-nested-item.selected.status-ignored > .list-item,
-.list-tree li.list-nested-item > .list-item,
 // .list-tree li:not(.list-nested-item).selected,
 // .list-tree li:not(.list-nested-item)
-{
+
+
+.list-tree li.list-nested-item > .list-item {
     color: @pastel-red;
 }
-.contentresult(@string, @count) when (@count = 1) {
-    @return: @string;
+
+// This is a recursively called mixin. It mimics a loop construct for Less.
+// Within the loop, we do two things:
+// 1) Extract the colour at that index from the colour list to use.
+// 2) Add another class to our repeated class selector.
+// Both these variables are output to create a new class and colour style.
+.generate-rainbow(@list, @i: 1, @string, @repeated: @string) when (@i <= length(@list)) {
+    @rainbow: extract(@list, @i);
+    @selector: ~'@{repeated}';
+    .list-tree @{selector} > .list-item {
+        color: @rainbow;
+    }
+    .generate-rainbow(@list, (@i + 1), @string, "@{string}@{repeated}");
 }
 
-.repeater(@item, @count, @string: "") when (@count > 0) {
-    .repeater(@item, (@count - 1), "@{string}@{item}");
-    .contentresult("@{string}@{item}", @count);
-}
+.generate-rainbow(@rainbow-colors, 1, "li.list-nested-item ");
 
-@name: return;
-.repeater(@name, 'li.list-nested-item ', 2);
-@smeg-2: ~'@{name}';
-
-.list-tree li.list-nested-item li.list-nested-item > .list-item
-{
-    color: @pastel-yellow;
-}
-
-@what: return;
-.repeater(@what, 'li.list-nested-item ', 3);
-@smeg-3: ~'@@{what}';
-
-.list-tree li.list-nested-item li.list-nested-item li.list-nested-item > .list-item
-{
-    color: @pastel-orange;
-}
-
-@hm: return;
-.repeater(@hm, 'li.list-nested-item ', 4);
-@smeg-4: ~'@@{hm}';
-
-.list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item
-{
-    color: @pastel-green;
-}
-
-.list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item
-{
-    color: @pastel-blue;
-}
-
-.list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item
-{
-    color: @pastel-violet;
-}
+// .list-tree li.list-nested-item li.list-nested-item > .list-item {
+//     color: @pastel-yellow;
+// }
+// @what: return;
+// .repeater(@what,  'li.list-nested-item ', 3))
+// @smeg-3: ~'@@{what}';
+// 
+// .list-tree li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
+//     color: @pastel-orange;
+// }
+// @hm: return;
+// .repeater(@hm,  'li.list-nested-item ', 4))
+// @smeg-4: ~'@@{hm}';
+// 
+// .list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
+//     color: @pastel-green;
+// }
+// 
+// .list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
+//     color: @pastel-blue;
+// }
+// 
+// .list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
+//     color: @pastel-violet;
+// }
