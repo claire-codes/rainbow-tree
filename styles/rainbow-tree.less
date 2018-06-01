@@ -16,7 +16,8 @@
 // 2) Add another class to our repeated class selector.
 // Both these variables are output to create a new class and colour style.
 .generate-rainbow(@list, @i: 1, @string, @repeated: @string) when (@i <= length(@list)) {
-    @rainbow: extract(@list, @i);
+    @extractMod: mod(@i, length(@list));
+    @rainbow: extract(@list, @extractMod);
     @selector: ~'@{repeated}';
     .list-tree @{selector} > .list-item {
         color: @rainbow;
