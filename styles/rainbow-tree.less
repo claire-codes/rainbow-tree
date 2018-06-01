@@ -6,15 +6,6 @@
 @pastel-violet: #baa2e8;
 @rainbow-colors: @pastel-red, @pastel-orange, @pastel-yellow, @pastel-green, @pastel-blue, @pastel-violet;
 
-// .list-group li.list-nested-item.selected > .list-item,
-// .list-group li.list-nested-item > .list-item,
-// .list-group li:not(.list-nested-item).selected,
-// .list-group li:not(.list-nested-item),
-// .list-tree li.list-nested-item.selected.status-ignored > .list-item,
-// .list-tree li:not(.list-nested-item).selected,
-// .list-tree li:not(.list-nested-item)
-
-
 .list-tree li.list-nested-item > .list-item {
     color: @pastel-red;
 }
@@ -33,7 +24,7 @@
     .generate-rainbow(@list, (@i + 1), @string, "@{string}@{repeated}");
 }
 
-.generate-rainbow(@rainbow-colors, 1, "li.list-nested-item ");
+.generate-rainbow(@rainbow-colors, 1, "li.list-nested-item ", "li.list-nested-item li.list-nested-item ");
 
 // .list-tree li.list-nested-item li.list-nested-item > .list-item {
 //     color: @pastel-yellow;
@@ -41,22 +32,22 @@
 // @what: return;
 // .repeater(@what,  'li.list-nested-item ', 3))
 // @smeg-3: ~'@@{what}';
-// 
+//
 // .list-tree li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
 //     color: @pastel-orange;
 // }
 // @hm: return;
 // .repeater(@hm,  'li.list-nested-item ', 4))
 // @smeg-4: ~'@@{hm}';
-// 
+//
 // .list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
 //     color: @pastel-green;
 // }
-// 
+//
 // .list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
 //     color: @pastel-blue;
 // }
-// 
+//
 // .list-tree li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item li.list-nested-item > .list-item {
 //     color: @pastel-violet;
 // }

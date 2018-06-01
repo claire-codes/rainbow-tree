@@ -7,8 +7,8 @@ Yes, I still use Atom.
 ## To do
 
 - Write Readme
-- Add more colours
+- Add ability to modify colours from options
 - Make sure it doesn't override gitignored ones
 - Make sure it doesn't override other git statuses
-- Try applying to filenames too
-- Make colours apply correctly from top down, starting at red
+- Apply to filenames
+- Rotate around colours up to 12 (or whatever) deep
