@@ -22,8 +22,8 @@
     .list-tree @{selector} > .list-item {
         color: @rainbow;
     }
-    .list-tree @{selector} > .list-item  ~ .list-tree .name {
-        color: @rainbow;
+    .list-tree @{selector} .list-item.file .name {
+        color: lighten(@rainbow, 5%);
     }
     .generate-rainbow(@list, (@i + 1), @totalTimes, @string, "@{string}@{repeated}");
 }
