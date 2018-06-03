@@ -5,7 +5,7 @@
   "description": "Applies a rainbow colour scheme to your folder structure in the treeview",
   "keywords": [
   ],
-  "repository": "https://github.com/atom/rainbow-tree",
+  "repository": "https://github.com/claireparker/rainbow-tree",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
