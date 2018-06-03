@@ -66,10 +66,18 @@
     color: @gitignore-colour !important;
 }
 
-.list-group li:not(.list-nested-item).selected.status-modified, .list-tree li:not(.list-nested-item).selected.status-modified, .list-group li.list-nested-item.selected.status-modified > .list-item, .list-tree li.list-nested-item.selected.status-modified > .list-item {
+// Git status: modified
+.list-group li.list-nested-item.selected.status-modified > .list-item,
+.list-group li:not(.list-nested-item).selected.status-modified,
+.list-tree li.list-nested-item.selected.status-modified > .list-item,
+.list-tree li:not(.list-nested-item).selected.status-modified {
     color: @git-modify-color !important;
 }
 
-.list-group li:not(.list-nested-item).selected.status-added, .list-tree li:not(.list-nested-item).selected.status-added, .list-group li.list-nested-item.selected.status-added > .list-item, .list-tree li.list-nested-item.selected.status-added > .list-item {
+// Git status: new
+.list-group li.list-nested-item.selected.status-added > .list-item,
+.list-group li:not(.list-nested-item).selected.status-added,
+.list-tree li.list-nested-item.selected.status-added > .list-item,
+.list-tree li:not(.list-nested-item).selected.status-added {
     color: @git-new-color !important;
 }
