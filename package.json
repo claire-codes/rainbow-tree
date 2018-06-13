@@ -1,7 +1,7 @@
 {
   "name": "rainbow-tree",
   "main": "./lib/rainbow-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Applies a rainbow colour scheme to your folder structure in the treeview",
   "keywords": [],
   "repository": "https://github.com/claireparker/rainbow-tree",
